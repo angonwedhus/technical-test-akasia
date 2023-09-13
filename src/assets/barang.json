@@ -1,0 +1,24 @@
+[
+    { 
+        "id": 1, 
+        "name": "Kaos", 
+        "description": "Bahan katun", 
+        "qty": 10, 
+        "harga": 10000 
+    },
+    { 
+        "id": 2, 
+        "name": "Jaket", 
+        "description": "Bahan Fleece", 
+        "qty": 15, 
+        "harga": 15000 
+    },
+    { 
+        "id": 3, 
+        "name": "Celana", 
+        "description": "Bahan Levis", 
+        "qty": 20, 
+        "harga": 20000 
+    }
+]
+  

@@ -1,0 +1,66 @@
+<div class="container mt-4">
+    <h1>Data Supplier <button type="button" class="btn btn-success" (click)="openModal()">Tambah</button></h1>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Email</th>
+            <th>No Telp</th>
+            <th class="text-center">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item.id }}</td>  
+            <td>{{ item.name }}</td>
+            <td>{{ item.alamat }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.no_telp }}</td>
+            <td class="text-center">
+              <button class="btn btn-warning m-1" (click)="updateData(item.id, item.name, item.alamat, item.email, item.no_telp)">Edit</button>
+              <button class="btn btn-danger m-1" (click)="deleteData(item.id)">Hapus</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah Supplier</h4>
+        
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+              <label for="firstName" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="name" placeholder="Nama Supplier" name="name" [(ngModel)]="formData.name">
+          </div>
+          <div class="mb-3">
+              <label for="lastName" class="form-label">Alamat</label>
+              <input type="text" class="form-control" id="description" placeholder="Alamat" name="alamat" [(ngModel)]="formData.alamat">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Email</label>
+            <input type="text" class="form-control" id="description" placeholder="Email" name="email" [(ngModel)]="formData.email">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">No Telp</label>
+            <input type="text" class="form-control" id="description" placeholder="No Telp" name="no_telp" [(ngModel)]="formData.no_telp">
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCloseHandled()" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

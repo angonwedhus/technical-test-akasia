@@ -1,0 +1,13 @@
+[
+    { 
+        "id": 1, 
+        "nama_supplier": "Makmuk Jaya", 
+        "nama_barang": "Kaos",
+        "harga_per_pcs": "10000",
+        "terjual": "100",
+        "harga_total": "1000000",
+        "tgl_transaksi": "13/09/2023",
+        "status": "Disetujui"
+    }
+]
+  

@@ -1,0 +1,96 @@
+<div class="container mt-4">
+    <h1>Data Transaksi Barang <button type="button" class="btn btn-success" (click)="openModal()">Tambah</button></h1>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nama Supplier</th>
+            <th>Nama Barang</th>
+            <th>Harga Per Pcs</th>
+            <th>Terjual</th>
+            <th>Harga Total</th>
+            <th>Tgl Transaksi</th>
+            <th>Status</th>
+            <th class="text-center">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item.id }}</td>  
+            <td>{{ item.nama_supplier }}</td>
+            <td>{{ item.nama_barang }}</td>
+            <td>{{ item.harga_per_pcs }}</td>
+            <td>{{ item.terjual }}</td>
+            <td>{{ item.harga_total }}</td>
+            <td>{{ item.tgl_transaksi }}</td>
+            <td>{{ item.status }}</td>
+            <td class="text-center">
+              <button class="btn btn-warning m-1">Edit</button>
+              <button class="btn btn-danger m-1" (click)="deleteData(item.id)">Hapus</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah Transaksi</h4>
+        
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+              <label for="firstName" class="form-label">Nama Supplier</label>
+              <select class="form-control" name="nama_supplier" id="nama_supplier" [(ngModel)]="formData.nama_supplier">
+                <option value="">Pilih Supplier</option>
+                <option value="Makmuk Jaya">Makmuk Jaya</option>
+              </select>
+          </div>
+          <div class="mb-3">
+              <label for="lastName" class="form-label">Nama Barang</label>
+              <select class="form-control" name="nama_barang" id="nama_barang" [(ngModel)]="formData.nama_barang">
+                <option value="">Pilih Barang</option>
+                <option value="Kaos">Kaos</option>
+                <option value="Jaket">Jaket</option>
+                <option value="Celana">Celana</option>
+              </select>
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Harga Per Pcs</label>
+            <input type="text" class="form-control" id="description" placeholder="Harga Per Pcs" name="harga_per_pcs" [(ngModel)]="formData.harga_per_pcs">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Terjual</label>
+            <input type="text" class="form-control" id="description" placeholder="Terjual" name="terjual" [(ngModel)]="formData.terjual">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Harga Total</label>
+            <input type="text" class="form-control" id="description" placeholder="Harga Total" name="harga_total" [(ngModel)]="formData.harga_total">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Tanggal Transaksi</label>
+            <input class="form-control" type="date" name="tgl_transaksi" [(ngModel)]="formData.tgl_transaksi">
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Status</label>
+            <select class="form-control" name="status" id="status" [(ngModel)]="formData.status">
+                <option value="">Pilih Status</option>
+                <option value="Disetujui">Disetujui</option>
+                <option value="Tidak Disetujui">Tidak Disetujui</option>
+              </select>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCloseHandled()" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

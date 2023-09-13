@@ -1,0 +1,42 @@
+<div *ngIf="shouldDisplayMenu()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center p-3">
+                <img src="favicon.ico" alt="Logo" class="img-fluid" width="20" height="20">
+            </div>
+            <span class="navbar-brand">Technical Test</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item p-1">
+                        <button [routerLink]="['/dashboard']" class="btn btn-default">Dashboard</button>
+                    </li>
+                
+                    <li class="nav-item p-1">
+                        <div ngbDropdown class="dropdown">
+                            <button ngbDropdownToggle class="btn btn-default" type="button" id="dropdownMenuButton1" aria-expanded="false">
+                        Master
+                        </button>
+                            <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                            <li><a ngbDropdownItem [routerLink]="['/barang']">Barang</a></li>
+                            <li><a ngbDropdownItem [routerLink]="['/users']">User</a></li>
+                            <li><a ngbDropdownItem [routerLink]="['/supplier']">Supplier</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item p-1">
+                        <button [routerLink]="['/transaksi']" class="btn btn-default">Transaksi</button>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+                    <li class="nav-item p-1">
+                        <button [routerLink]="['']" class="btn btn-secondary">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
